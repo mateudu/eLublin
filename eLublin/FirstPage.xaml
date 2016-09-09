@@ -1,0 +1,43 @@
+﻿<Page
+    x:Class="eLublin.FirstPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    
+    <Page.Resources>
+        <Style x:Key="LayoutGridStyle" TargetType="Grid">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <ImageBrush Stretch="UniformToFill" ImageSource="background.jpg"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    <Grid  x:Name="LayoutRoot"  Style="{StaticResource LayoutGridStyle}">
+        <Grid Margin="40,0" VerticalAlignment="Center" MaxHeight="1080">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Image Grid.Row="0" Source="3.png"/>
+            <TextBox Grid.Row="1" x:Name="EmailBox" PlaceholderText="E-mail" IsTextPredictionEnabled="False" IsSpellCheckEnabled="False" InputScope="EmailSmtpAddress" KeyDown="EmailBox_OnKeyDown"/>
+        <PasswordBox Grid.Row="2" x:Name="PasswordBox" PlaceholderText="Hasło" KeyDown="PasswordBox_OnKeyDown"/>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <TextBlock FontSize="30" Text="Nie masz konta?"/>
+                    <TextBlock FontSize="30" Text="Zarejestruj sie."/>
+                </StackPanel>
+                <Button x:Name="LoginButton" Grid.Column="1"  Content="Zaloguj" Click="LoginButton_OnClick" HorizontalAlignment="Right"/>
+            </Grid>
+       
+    </Grid>
+    </Grid>
+</Page>

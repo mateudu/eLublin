@@ -1,0 +1,33 @@
+drop table Notification;
+drop table Report;
+drop table UserInfo;
+
+create table UserInfo(
+	id int identity(1,1),
+	email nvarchar(max),
+	firstName nvarchar(max),
+	lastName nvarchar(max),
+	phoneNumber nvarchar(max),
+	constraint PK_UserInfo primary key (id)
+);
+
+create table Report(
+	id int identity(1,1),
+	userInfoId int,	
+	glosy int default '0',
+	tekst nvarchar(max),
+	lat varchar(max),
+	lng varchar(max),
+	imagePath nvarchar(max),
+	imageStream varbinary(max),
+	constraint PK_Report primary key (id),
+	constraint FK_Report_UserInfo foreign key (userInfoId) references UserInfo(id)
+);
+
+create table Notification(
+	id int identity(1,1),
+	czasDodania datetime,
+	tekst nvarchar(max),
+	url nvarchar(max),
+	constraint PK_Notification primary key (id)
+);
